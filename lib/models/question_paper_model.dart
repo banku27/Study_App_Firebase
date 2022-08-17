@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class QuestionPaperModel {
   String id;
   String title;
@@ -24,7 +22,7 @@ class QuestionPaperModel {
         description = json['Description'] as String,
         timeSeconds = json['time_seconds'],
         questions = (json['questions'] as List)
-            .map((e) => Questions.fromJson(e))
+            .map((dynamic e) => Questions.fromJson(e as Map<String, dynamic>))
             .toList();
 
   Map<String, dynamic> toJson() {
@@ -34,9 +32,7 @@ class QuestionPaperModel {
     data['image_url'] = this.imageUrl;
     data['Description'] = this.description;
     data['time_seconds'] = this.timeSeconds;
-    if (this.questions != null) {
-      data['questions'] = this.questions.map((v) => v.toJson()).toList();
-    }
+
     return data;
   }
 }
