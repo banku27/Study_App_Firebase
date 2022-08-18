@@ -22,14 +22,18 @@ class AppIntroductionScreen extends StatelessWidget {
               Icon(
                 Icons.star,
                 size: 65,
-                color: Colors.amber,
+                // color: Colors.amber,
               ),
               SizedBox(
                 height: 40,
               ),
               Text(
                 'This is a study app. You can use it as you want. If you understand how is this works, you would be able to scale it.',
-                style: TextStyle(color: Colors.black),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: onSurfaceTextColor,
+                    fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 40,
