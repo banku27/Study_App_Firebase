@@ -2,12 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:study_app_firebase/app_routes..dart';
+import 'package:study_app_firebase/bindings/initial_bindings.dart';
 import 'package:study_app_firebase/data_uploader_screen.dart';
 import 'package:study_app_firebase/firebase_options.dart';
 import 'package:study_app_firebase/screens/introduction/introduction.dart';
 import 'package:study_app_firebase/screens/splash/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  InitialBindings().dependencies();
   runApp(const MyApp());
 }
 
