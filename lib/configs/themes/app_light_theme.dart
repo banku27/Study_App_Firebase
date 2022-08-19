@@ -6,7 +6,7 @@ const Color primaryColorLight = Color(0xfff85187);
 const Color mainTextColorLight = Color.fromARGB(255, 40, 40, 40);
 
 class LightTheme with SubThemeData {
-  buildLightTheme() {
+  ThemeData buildLightTheme() {
     final ThemeData systemLightTheme = ThemeData.light();
     return systemLightTheme.copyWith(
       iconTheme: getIconTheme(),
