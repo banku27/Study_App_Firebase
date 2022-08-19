@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:study_app_firebase/configs/themes/app_colors.dart';
+
 import 'package:study_app_firebase/widgets/app_circle_button.dart';
 
 class AppIntroductionScreen extends StatelessWidget {
@@ -38,12 +39,13 @@ class AppIntroductionScreen extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              AppCircleButton(
-                // onTap: ,
-                width: 2,
-                child: Icon(
-                  Icons.arrow_forward,
-                  size: 35,
+              InkWell(
+                child: AppCircleButton(
+                  width: 2,
+                  child: Icon(
+                    Icons.arrow_forward,
+                    size: 35,
+                  ),
                 ),
               ),
             ],

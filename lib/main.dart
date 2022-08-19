@@ -7,6 +7,7 @@ import 'package:study_app_firebase/configs/themes/app_light_theme.dart';
 import 'package:study_app_firebase/controllers/theme_controller.dart';
 import 'package:study_app_firebase/data_uploader_screen.dart';
 import 'package:study_app_firebase/firebase_options.dart';
+import 'package:study_app_firebase/screens/home/home_screen.dart';
 import 'package:study_app_firebase/screens/introduction/introduction.dart';
 import 'package:study_app_firebase/screens/splash/splash_screen.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: Get.find<ThemeController>().darkTheme,
       getPages: AppRoutes.routes(),
       debugShowCheckedModeBanner: false,
-      // home: const AppIntroductionScreen(),
+      // home: const HomeScreen(),
     );
   }
 }
