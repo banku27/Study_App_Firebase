@@ -26,5 +26,9 @@ class AppRoutes {
             },
           ),
         ),
+        GetPage(
+          page: () => const AppIntroductionScreen(),
+          name: AppIntroductionScreen.routeName,
+        ),
       ];
 }

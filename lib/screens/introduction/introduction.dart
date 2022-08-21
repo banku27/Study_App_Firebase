@@ -5,6 +5,7 @@ import 'package:study_app_firebase/configs/themes/app_colors.dart';
 import 'package:study_app_firebase/widgets/app_circle_button.dart';
 
 class AppIntroductionScreen extends StatelessWidget {
+  static const String routeName = '/introduction';
   const AppIntroductionScreen({Key? key}) : super(key: key);
 
   @override
@@ -19,16 +20,16 @@ class AppIntroductionScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 Icons.star,
                 size: 65,
                 // color: Colors.amber,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-              Text(
+              const Text(
                 'This is a study app. You can use it as you want. If you understand how is this works, you would be able to scale it.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -36,16 +37,15 @@ class AppIntroductionScreen extends StatelessWidget {
                     color: onSurfaceTextColor,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
-              InkWell(
-                child: AppCircleButton(
-                  width: 2,
-                  child: Icon(
-                    Icons.arrow_forward,
-                    size: 35,
-                  ),
+              AppCircleButton(
+                onTap: () => Get.offAndToNamed("/home"),
+                width: 2,
+                child: const Icon(
+                  Icons.arrow_forward,
+                  size: 35,
                 ),
               ),
             ],

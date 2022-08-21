@@ -15,6 +15,7 @@ class FirebaseStorageService extends GetxService {
       var imgUrl = await urlRef.getDownloadURL();
       return imgUrl;
     } catch (e) {
+      print(e);
       return null;
     }
   }

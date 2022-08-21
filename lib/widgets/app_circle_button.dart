@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppCircleButton extends StatelessWidget {
-  final Widget child;
-  final Color? color;
-  final double width;
-  final VoidCallback? onTap;
   const AppCircleButton({
     Key? key,
     required this.child,
@@ -12,6 +8,10 @@ class AppCircleButton extends StatelessWidget {
     this.width = 60,
     this.onTap,
   }) : super(key: key);
+  final Widget child;
+  final Color? color;
+  final double width;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {

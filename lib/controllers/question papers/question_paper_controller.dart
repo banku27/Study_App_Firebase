@@ -4,6 +4,7 @@ import 'package:study_app_firebase/services/firebase_storage_services.dart';
 class QuestionPaperController extends GetxController {
   final allPaperImages = <String>[].obs;
 
+  // final firebaseStorage = Get.put(FirebaseStorageService());
   @override
   void onReady() {
     getAllPapers();

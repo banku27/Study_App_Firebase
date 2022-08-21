@@ -11,26 +11,27 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         body: Obx(
       () => ListView.separated(
-          itemBuilder: (context, index) {
-            return ClipRRect(
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: FadeInImage(
-                  placeholder:
-                      const AssetImage('assets/images/app_splash_logo.png'),
-                  image: NetworkImage(
-                      _questionPaperController.allPaperImages[index]),
-                ),
+        itemCount: _questionPaperController.allPaperImages.length,
+        itemBuilder: (context, index) {
+          return ClipRRect(
+            child: SizedBox(
+              height: 200,
+              width: 200,
+              child: FadeInImage(
+                placeholder:
+                    const AssetImage('assets/images/app_splash_logo.png'),
+                image: NetworkImage(
+                    _questionPaperController.allPaperImages[index]),
               ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return const SizedBox(
-              height: 20,
-            );
-          },
-          itemCount: _questionPaperController.allPaperImages.length),
+            ),
+          );
+        },
+        separatorBuilder: (context, index) {
+          return const SizedBox(
+            height: 20,
+          );
+        },
+      ),
     ));
   }
 }
