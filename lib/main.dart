@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       navigatorKey: navigatorKey,
 
-      theme: Get.find<ThemeController>().darkTheme,
+      theme: Get.find<ThemeController>().lightTheme,
       getPages: AppRoutes.routes(),
       debugShowCheckedModeBanner: false,
       // home: const HomeScreen(),
