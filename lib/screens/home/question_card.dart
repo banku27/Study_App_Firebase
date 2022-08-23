@@ -18,17 +18,20 @@ class QuestionCard extends StatelessWidget {
         Row(
           children: [
             ClipRRect(
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: CachedNetworkImage(
-                  imageUrl: model.imageUrl!,
-                  placeholder: (context, url) => Container(
-                    alignment: Alignment.center,
-                    child: const CircularProgressIndicator(),
+              child: Container(
+                color: Colors.red,
+                child: SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: CachedNetworkImage(
+                    imageUrl: model.imageUrl!,
+                    placeholder: (context, url) => Container(
+                      alignment: Alignment.center,
+                      child: const CircularProgressIndicator(),
+                    ),
+                    errorWidget: (context, url, error) =>
+                        Image.asset("assets/images/app_splash_logo.png"),
                   ),
-                  errorWidget: (context, url, error) =>
-                      Image.asset("assets/images/app_splash_logo.png"),
                 ),
               ),
             ),
