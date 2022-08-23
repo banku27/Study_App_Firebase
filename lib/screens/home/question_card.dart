@@ -5,6 +5,7 @@ import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
 
 import 'package:study_app_firebase/models/question_paper_model.dart';
+import 'package:study_app_firebase/widgets/app_icon_text.dart';
 
 class QuestionCard extends StatelessWidget {
   const QuestionCard({
@@ -59,6 +60,45 @@ class QuestionCard extends StatelessWidget {
                         model.description,
                       ),
                     ),
+                    Row(
+                      children: [
+                        AppIconText(
+                          icon: Icon(
+                            Icons.help_outline_sharp,
+                            color: Get.isDarkMode
+                                ? Colors.white
+                                : Theme.of(context).primaryColor,
+                          ),
+                          text: Text(
+                            '${model.questionsCount} questions',
+                            style: detailText.copyWith(
+                              color: Get.isDarkMode
+                                  ? Colors.white
+                                  : Theme.of(context).primaryColor,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        AppIconText(
+                          icon: Icon(
+                            Icons.timer,
+                            color: Get.isDarkMode
+                                ? Colors.white
+                                : Theme.of(context).primaryColor,
+                          ),
+                          text: Text(
+                            '${model.questionsCount} questions',
+                            style: detailText.copyWith(
+                              color: Get.isDarkMode
+                                  ? Colors.white
+                                  : Theme.of(context).primaryColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               )
