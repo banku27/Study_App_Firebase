@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
 import 'package:study_app_firebase/controllers/question%20papers/question_paper_controller.dart';
 import 'package:study_app_firebase/screens/home/question_card.dart';
 
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Obx(
         () => ListView.separated(
+          padding: UIParameters.mobileScreenPadding,
           shrinkWrap: true,
           itemCount: _questionPaperController.allPapers.length,
           itemBuilder: (context, index) {
