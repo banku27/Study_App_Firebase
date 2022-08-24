@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:study_app_firebase/controllers/my_zoom_drawer_controller.dart';
 
 import 'package:study_app_firebase/controllers/question%20papers/question_paper_controller.dart';
 import 'package:study_app_firebase/screens/home/home_screen.dart';
@@ -23,6 +24,7 @@ class AppRoutes {
               Get.put(
                 QuestionPaperController(),
               );
+              Get.put(MyZoomDrawerController());
             },
           ),
         ),
