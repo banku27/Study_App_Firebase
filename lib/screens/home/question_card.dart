@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:study_app_firebase/configs/app_icons.dart';
 import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
 import 'package:study_app_firebase/models/question_paper_model.dart';
@@ -24,6 +25,7 @@ class QuestionCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Stack(
+          clipBehavior: Clip.none,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,12 +104,34 @@ class QuestionCard extends StatelessWidget {
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
+            Positioned(
+              bottom: -10,
+              right: -10,
+              child: GestureDetector(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 20,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                  ),
+                  child: const Icon(
+                    AppIcons.trophyOutline,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
