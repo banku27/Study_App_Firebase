@@ -14,65 +14,75 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuestionPaperController _questionPaperController = Get.find();
-    return Container(
-      decoration: BoxDecoration(
-        gradient: mainGradient(),
-      ),
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(mobileScreenPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(
-                    AppIcons.menuLeft,
-                    color: Colors.red,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        AppIcons.menuLeft,
-                        color: Colors.red,
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: mainGradient(),
+        ),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(mobileScreenPadding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(
+                      AppIcons.menuLeft,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            AppIcons.peace,
+                          ),
+                          Text(
+                            'Hello friend',
+                            style: detailText.copyWith(
+                              color: onSurfaceTextColor,
+                            ),
+                          )
+                        ],
                       ),
-                      Text(
-                        'Hello friend',
-                        style: detailText.copyWith(
-                          color: onSurfaceTextColor,
-                        ),
-                      )
-                    ],
-                  ),
-                ],
+                    ),
+                    const Text(
+                      'What do you want to learn today?',
+                      style: headerText,
+                    )
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              child: ContentArea(
-                addPadding: false,
-                child: Obx(
-                  () => ListView.separated(
-                    padding: UIParameters.mobileScreenPadding,
-                    itemCount: _questionPaperController.allPapers.length,
-                    itemBuilder: (context, index) {
-                      return QuestionCard(
-                        model: _questionPaperController.allPapers[index],
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 20,
-                      );
-                    },
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ContentArea(
+                    addPadding: false,
+                    child: Obx(
+                      () => ListView.separated(
+                        padding: UIParameters.mobileScreenPadding,
+                        itemCount: _questionPaperController.allPapers.length,
+                        itemBuilder: (context, index) {
+                          return QuestionCard(
+                            model: _questionPaperController.allPapers[index],
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return const SizedBox(
+                            height: 20,
+                          );
+                        },
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
