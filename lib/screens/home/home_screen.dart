@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/config.dart';
-
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:study_app_firebase/configs/app_icons.dart';
@@ -9,6 +7,7 @@ import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
 import 'package:study_app_firebase/controllers/my_zoom_drawer_controller.dart';
 import 'package:study_app_firebase/controllers/question%20papers/question_paper_controller.dart';
+import 'package:study_app_firebase/screens/home/menu_screen.dart';
 import 'package:study_app_firebase/screens/home/question_card.dart';
 import 'package:study_app_firebase/widgets/content_area.dart';
 
@@ -24,14 +23,13 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
         controller: _.zoomDrawerController,
         borderRadius: 50,
         showShadow: true,
-        angle: 0,
-        style: DrawerStyle.defaultStyle,
-        menuBackgroundColor: Colors.white.withOpacity(0.5),
-        slideWidth: MediaQuery.of(context).size.width * 0.4,
-        menuScreen: const Text(
-          'Pankaj',
-          style: TextStyle(fontSize: 22),
-        ),
+        angle: 0.0,
+
+        // backgroundColor: ,
+        style: DrawerStyle.DefaultStyle,
+        backgroundColor: Colors.white.withOpacity(0.5),
+        slideWidth: MediaQuery.of(context).size.width * 0.5,
+        menuScreen: MenuScreen(),
         mainScreen: Container(
           decoration: BoxDecoration(
             gradient: mainGradient(),
