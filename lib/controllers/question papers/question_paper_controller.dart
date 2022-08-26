@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:study_app_firebase/controllers/auth_controller.dart';
@@ -52,6 +54,7 @@ class QuestionPaperController extends GetxController {
         Get.back();
         // Get.offNamed()
       } else {
+        log('already logged-in');
         // Get.toNamed(page);
       }
     } else {
