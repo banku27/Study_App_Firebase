@@ -4,10 +4,11 @@ import 'package:get/get.dart';
 import 'package:study_app_firebase/configs/app_icons.dart';
 import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
+import 'package:study_app_firebase/controllers/question%20papers/question_paper_controller.dart';
 import 'package:study_app_firebase/models/question_paper_model.dart';
 import 'package:study_app_firebase/widgets/app_icon_text.dart';
 
-class QuestionCard extends StatelessWidget {
+class QuestionCard extends GetView<QuestionPaperController> {
   const QuestionCard({
     Key? key,
     required this.model,
@@ -24,7 +25,7 @@ class QuestionCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          print('${model.title}');
+          controller.navigateToQuestions(paper: model);
         },
         child: Padding(
           padding: const EdgeInsets.all(10.0),

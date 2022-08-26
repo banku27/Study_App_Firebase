@@ -4,6 +4,7 @@ import 'package:study_app_firebase/controllers/my_zoom_drawer_controller.dart';
 import 'package:study_app_firebase/controllers/question%20papers/question_paper_controller.dart';
 import 'package:study_app_firebase/screens/home/home_screen.dart';
 import 'package:study_app_firebase/screens/introduction/introduction.dart';
+import 'package:study_app_firebase/screens/login/login_screen.dart';
 import 'package:study_app_firebase/screens/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -32,5 +33,6 @@ class AppRoutes {
           page: () => const AppIntroductionScreen(),
           name: AppIntroductionScreen.routeName,
         ),
+        GetPage(name: LoginScreen.routeName, page: () => const LoginScreen())
       ];
 }
