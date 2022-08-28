@@ -19,11 +19,19 @@ class MyZoomDrawerController extends GetxController {
     update();
   }
 
-  void signOut() {}
+  void signOut() {
+    Get.find<AuthController>().signOut();
+  }
 
   void signIn() {}
 
-  void website() {}
+  void website() {
+    _launch('https://github.com/banku27');
+  }
+
+  void linkedIn() {
+    _launch('https://www.linkedin.com/in/pankaj-parihar-63946a20b/');
+  }
 
   void email() {
     final Uri emailLaunchUri = Uri(

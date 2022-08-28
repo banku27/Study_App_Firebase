@@ -49,25 +49,31 @@ class MenuScreen extends GetView<MyZoomDrawerController> {
                                   color: onSurfaceTextColor),
                             ),
                     ),
+                    const Spacer(
+                      flex: 1,
+                    ),
                     _DrawerButton(
                       icon: Icons.web,
                       label: "website",
                       onTap: () => controller.website(),
                     ),
                     _DrawerButton(
-                      icon: Icons.facebook,
-                      label: "facebook",
-                      onTap: () => controller.website(),
+                      icon: Icons.link,
+                      label: "LinkedIn",
+                      onTap: () => controller.linkedIn(),
                     ),
                     _DrawerButton(
                       icon: Icons.email,
                       label: "email",
                       onTap: () => controller.email(),
                     ),
+                    const Spacer(
+                      flex: 4,
+                    ),
                     _DrawerButton(
                       icon: Icons.logout,
-                      label: "logout",
-                      onTap: () => controller.website(),
+                      label: "Logout",
+                      onTap: () => controller.signOut(),
                     ),
                   ],
                 ),

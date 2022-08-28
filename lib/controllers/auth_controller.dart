@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:study_app_firebase/firebase_ref/references.dart';
+import 'package:study_app_firebase/screens/home/home_screen.dart';
 import 'package:study_app_firebase/screens/login/login_screen.dart';
 import 'package:study_app_firebase/widgets/dialogs/dialog_widget.dart';
 
@@ -40,6 +41,7 @@ class AuthController extends GetxController {
 
         await _auth.signInWithCredential(_credential);
         await saveUser(account);
+        navigateToHomePage();
       }
     } on Exception catch (e) {
       Get.snackbar('error', e.toString());
@@ -63,8 +65,19 @@ class AuthController extends GetxController {
     Get.snackbar('Sign-Out', 'Sign Out');
     try {
       await _auth.signOut();
+      navigateToHomePage();
     } on FirebaseAuthException catch (e) {
       Get.snackbar('error', e.toString());
+    }
+  }
+
+  navigateToHomePage() {
+    void showLoginAlertDialogue() {
+      Get.dialog(
+        Dialogs.questionStartDialogue(onTap: () {
+          Get.offAllNamed(HomeScreen.routeName);
+        }),
+      );
     }
   }
 
