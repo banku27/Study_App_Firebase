@@ -1,11 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
+import 'package:study_app_firebase/controllers/auth_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyZoomDrawerController extends GetxController {
   final zoomDrawerController = ZoomDrawerController();
+  Rxn<User?> user = Rxn();
 
   @override
   void onReady() {
+    user.value = Get.find<AuthController>().getUser();
     super.onReady();
   }
 
@@ -18,17 +23,21 @@ class MyZoomDrawerController extends GetxController {
 
   void signIn() {}
 
-  void gitHub() {}
+  void website() {}
 
-  // void email() {
-  //   final Uri emailLaunchUri = Uri(
-  //     scheme: 'mailto',
-  //     path: 'pankaj2706parihar@gmail.com',
-  //   );
-  //   _launch(emailLaunchUri);
-  // }
+  void email() {
+    final Uri emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: 'pankaj2706parihar@gmail.com',
+    );
+    _launch(emailLaunchUri.toString());
+  }
 
-  // _launch(String url){
+  Future<void> _launch(String url) async {
+    if (!await launch(url)) {
+      throw 'could not launch $url';
+    }
+  }
 
-  // }
+  // _launch(String url) {}
 }

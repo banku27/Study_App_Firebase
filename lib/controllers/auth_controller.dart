@@ -46,12 +46,26 @@ class AuthController extends GetxController {
     }
   }
 
+  User? getUser() {
+    _user.value = _auth.currentUser;
+    return _user.value;
+  }
+
   saveUser(GoogleSignInAccount account) {
     userReference.doc(account.email).set({
       "email": account.email,
       "name": account.displayName,
       "profilepic": account.photoUrl,
     });
+  }
+
+  Future<void> signOut() async {
+    Get.snackbar('Sign-Out', 'Sign Out');
+    try {
+      await _auth.signOut();
+    } on FirebaseAuthException catch (e) {
+      Get.snackbar('error', e.toString());
+    }
   }
 
   void navigateToIntroduction() {
