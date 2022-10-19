@@ -19,7 +19,7 @@ class AnswerCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: UIParameters.cardBorderRadius,
       child: Ink(
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: UIParameters.cardBorderRadius,
           border: Border.all(
