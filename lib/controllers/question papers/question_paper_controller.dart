@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:study_app_firebase/controllers/auth_controller.dart';
 import 'package:study_app_firebase/firebase_ref/references.dart';
 import 'package:study_app_firebase/models/question_paper_model.dart';
+import 'package:study_app_firebase/screens/question/questions_screen.dart';
 import 'package:study_app_firebase/services/firebase_storage_services.dart';
 
 class QuestionPaperController extends GetxController {
@@ -55,7 +56,7 @@ class QuestionPaperController extends GetxController {
         // Get.offNamed()
       } else {
         log('already logged-in');
-        // Get.toNamed(page);
+        Get.toNamed(QuestionsScreen.routeName, arguments: paper);
       }
     } else {
       _authController.showLoginAlertDialogue();
