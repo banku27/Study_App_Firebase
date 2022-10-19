@@ -102,9 +102,12 @@ class QuestionsScreen extends GetView<QuestionsController> {
                         child: Visibility(
                           child: MainButton(
                             onTap: () {
-                              controller.nextQuestion();
+                              controller.isLastQuestion
+                                  ? Container()
+                                  : controller.nextQuestion();
                             },
-                            title: 'Next',
+                            title:
+                                controller.isLastQuestion ? 'Complete' : 'Next',
                           ),
                         ),
                       )
