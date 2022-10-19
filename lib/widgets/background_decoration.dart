@@ -24,7 +24,8 @@ class BackgroundDecoration extends StatelessWidget {
               painter: BackgroundPainter(),
             ),
           ),
-        )
+        ),
+        Positioned(child: child),
       ],
     );
   }
