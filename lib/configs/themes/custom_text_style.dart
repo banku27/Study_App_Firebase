@@ -9,7 +9,7 @@ TextStyle cartTitles(context) => TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.bold,
     );
-
+const questionTS = TextStyle(fontSize: 16, fontWeight: FontWeight.w800);
 const detailText = TextStyle(fontSize: 12);
 const headerText = TextStyle(
   fontSize: 22,
