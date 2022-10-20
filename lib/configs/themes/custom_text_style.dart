@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:study_app_firebase/configs/themes/app_colors.dart';
 import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
 
@@ -22,3 +23,9 @@ const appBarTs = TextStyle(
   fontSize: 16,
   color: onSurfaceTextColor,
 );
+
+TextStyle countDownTimerTs() => TextStyle(
+    letterSpacing: 2,
+    color: UIParameters.isDarkMode()
+        ? Theme.of(Get.context!).textTheme.bodyText1!.color
+        : Theme.of(Get.context!).primaryColor);

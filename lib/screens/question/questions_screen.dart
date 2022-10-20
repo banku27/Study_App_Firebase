@@ -11,6 +11,7 @@ import 'package:study_app_firebase/widgets/custom_app_bar.dart';
 import 'package:study_app_firebase/widgets/main_button.dart';
 import 'package:study_app_firebase/widgets/question_paper_holder.dart';
 import 'package:study_app_firebase/widgets/questions/answer_card.dart';
+import 'package:study_app_firebase/widgets/questions/count_down_timer.dart';
 
 class QuestionsScreen extends GetView<QuestionsController> {
   const QuestionsScreen({super.key});
@@ -33,7 +34,10 @@ class QuestionsScreen extends GetView<QuestionsController> {
             ),
           ),
           child: Obx(
-            () => Text('${controller.time.value}'),
+            () => CountDownTimer(
+              time: controller.time.value,
+              color: onSurfaceTextColor,
+            ),
           ),
         ),
         showActionIcon: true,
