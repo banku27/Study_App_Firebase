@@ -32,7 +32,9 @@ class QuestionsScreen extends GetView<QuestionsController> {
               ),
             ),
           ),
-          child: const Text('timer'),
+          child: Obx(
+            () => Text('${controller.time.value}'),
+          ),
         ),
         showActionIcon: true,
         titleWidget: Obx(
