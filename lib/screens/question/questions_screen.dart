@@ -5,6 +5,7 @@ import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
 import 'package:study_app_firebase/controllers/question%20papers/questions_controller.dart';
 import 'package:study_app_firebase/firebase_ref/loading_status.dart';
+import 'package:study_app_firebase/screens/question/test_overview_screen.dart';
 import 'package:study_app_firebase/widgets/background_decoration.dart';
 import 'package:study_app_firebase/widgets/content_area.dart';
 import 'package:study_app_firebase/widgets/custom_app_bar.dart';
@@ -132,7 +133,9 @@ class QuestionsScreen extends GetView<QuestionsController> {
                           child: MainButton(
                             onTap: () {
                               controller.isLastQuestion
-                                  ? Container()
+                                  ? Get.toNamed(
+                                      TestOverviewScreen.routeName,
+                                    )
                                   : controller.nextQuestion();
                             },
                             title:

@@ -7,6 +7,7 @@ import 'package:study_app_firebase/screens/home/home_screen.dart';
 import 'package:study_app_firebase/screens/introduction/introduction.dart';
 import 'package:study_app_firebase/screens/login/login_screen.dart';
 import 'package:study_app_firebase/screens/question/questions_screen.dart';
+import 'package:study_app_firebase/screens/question/test_overview_screen.dart';
 import 'package:study_app_firebase/screens/splash/splash_screen.dart';
 
 class AppRoutes {
@@ -44,11 +45,14 @@ class AppRoutes {
           page: () => const QuestionsScreen(),
           binding: BindingsBuilder(
             () {
-              Get.put(
+              Get.put<QuestionsController>(
                 QuestionsController(),
               );
             },
           ),
         ),
+        GetPage(
+            name: TestOverviewScreen.routeName,
+            page: () => const TestOverviewScreen())
       ];
 }

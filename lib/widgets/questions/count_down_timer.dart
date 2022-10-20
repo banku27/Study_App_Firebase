@@ -1,8 +1,4 @@
-import 'package:flutter/animation.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 
 class CountDownTimer extends StatelessWidget {
@@ -12,6 +8,7 @@ class CountDownTimer extends StatelessWidget {
     required this.time,
   }) : super(key: key);
   final Color? color;
+
   final String time;
 
   @override
