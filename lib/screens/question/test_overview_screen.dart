@@ -6,7 +6,9 @@ import 'package:study_app_firebase/controllers/question%20papers/questions_contr
 import 'package:study_app_firebase/widgets/background_decoration.dart';
 import 'package:study_app_firebase/widgets/content_area.dart';
 import 'package:study_app_firebase/widgets/custom_app_bar.dart';
+import 'package:study_app_firebase/widgets/questions/answer_card.dart';
 import 'package:study_app_firebase/widgets/questions/count_down_timer.dart';
+import 'package:study_app_firebase/widgets/questions/question_number_card.dart';
 
 class TestOverviewScreen extends GetView<QuestionsController> {
   const TestOverviewScreen({super.key});
@@ -47,22 +49,27 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                   ),
                   Expanded(
                     child: GridView.builder(
-                      shrinkWrap: true,
-                      physics: BouncingScrollPhysics(),
-                      itemCount: controller.allQuestions.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: Get.width ~/ 75,
-                        childAspectRatio: 1,
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 8,
-                      ),
-                      itemBuilder: (context, index) => Text(
-                        '${controller.allQuestions[index].selectedAnswer != null}',
-                        style: TextStyle(
-                          fontSize: 20,
+                        shrinkWrap: true,
+                        physics: BouncingScrollPhysics(),
+                        itemCount: controller.allQuestions.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: Get.width ~/ 70,
+                          childAspectRatio: 1,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
                         ),
-                      ),
-                    ),
+                        itemBuilder: (context, index) {
+                          AnswerStatus? answerStatus;
+                          if (controller.allQuestions[index].selectedAnswer !=
+                              null) {
+                            answerStatus = AnswerStatus.answered;
+                          }
+                          return QuestionNumberCard(
+                            index: index + 1,
+                            onTap: () {},
+                            status: answerStatus,
+                          );
+                        }),
                   )
                 ],
               ),
