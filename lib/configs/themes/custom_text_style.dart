@@ -16,3 +16,9 @@ const headerText = TextStyle(
   fontWeight: FontWeight.w700,
   color: onSurfaceTextColor,
 );
+
+const appBarTs = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 16,
+  color: onSurfaceTextColor,
+);

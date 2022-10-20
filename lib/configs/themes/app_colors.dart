@@ -37,5 +37,5 @@ Color answerSelectedColor() => UIParameters.isDarkMode()
     : Theme.of(Get.context!).primaryColor;
 
 Color answerBorderColor() => UIParameters.isDarkMode()
-    ? Color.fromARGB(255, 20, 46, 158)
-    : Color.fromARGB(255, 221, 221, 221);
+    ? const Color.fromARGB(255, 20, 46, 158)
+    : const Color.fromARGB(255, 221, 221, 221);

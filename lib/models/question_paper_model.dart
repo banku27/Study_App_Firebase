@@ -42,7 +42,7 @@ class QuestionPaperModel {
   String timeInMinutes() => "${(timeSeconds / 60).ceil()} mins";
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['title'] = this.title;
     data['image_url'] = this.imageUrl;

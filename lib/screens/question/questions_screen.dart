@@ -7,6 +7,7 @@ import 'package:study_app_firebase/controllers/question%20papers/questions_contr
 import 'package:study_app_firebase/firebase_ref/loading_status.dart';
 import 'package:study_app_firebase/widgets/background_decoration.dart';
 import 'package:study_app_firebase/widgets/content_area.dart';
+import 'package:study_app_firebase/widgets/custom_app_bar.dart';
 import 'package:study_app_firebase/widgets/main_button.dart';
 import 'package:study_app_firebase/widgets/question_paper_holder.dart';
 import 'package:study_app_firebase/widgets/questions/answer_card.dart';
@@ -19,6 +20,28 @@ class QuestionsScreen extends GetView<QuestionsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        leading: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: const ShapeDecoration(
+            shape: StadiumBorder(
+              side: BorderSide(
+                color: onSurfaceTextColor,
+                width: 2,
+              ),
+            ),
+          ),
+          child: const Text('timer'),
+        ),
+        showActionIcon: true,
+        titleWidget: Obx(
+          () => Text(
+            'Q. ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}',
+            style: appBarTs,
+          ),
+        ),
+      ),
       body: BackgroundDecoration(
         child: Obx(
           () => Column(
