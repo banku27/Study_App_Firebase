@@ -66,7 +66,9 @@ class TestOverviewScreen extends GetView<QuestionsController> {
                           }
                           return QuestionNumberCard(
                             index: index + 1,
-                            onTap: () {},
+                            onTap: () {
+                              controller.jumpToQuestion(index);
+                            },
                             status: answerStatus,
                           );
                         }),

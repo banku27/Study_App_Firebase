@@ -91,6 +91,14 @@ class QuestionsController extends GetxController {
     return '$answered out of ${allQuestions.length} answered';
   }
 
+  void jumpToQuestion(int index, {bool isGoBack = true}) {
+    questionIndex.value = index;
+    currentQuestion.value = allQuestions[index];
+    if (isGoBack) {
+      Get.back();
+    }
+  }
+
   void nextQuestion() {
     if (questionIndex.value >= allQuestions.length - 1) return;
     questionIndex.value++;
