@@ -5,6 +5,7 @@ import 'package:study_app_firebase/configs/app_icons.dart';
 import 'package:study_app_firebase/configs/themes/app_colors.dart';
 import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
+import 'package:study_app_firebase/controllers/auth_controller.dart';
 import 'package:study_app_firebase/controllers/my_zoom_drawer_controller.dart';
 import 'package:study_app_firebase/controllers/question%20papers/question_paper_controller.dart';
 import 'package:study_app_firebase/screens/home/menu_screen.dart';
@@ -30,7 +31,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
         style: DrawerStyle.DefaultStyle,
         backgroundColor: Colors.white.withOpacity(0.5),
         slideWidth: MediaQuery.of(context).size.width * 0.5,
-        menuScreen: MenuScreen(),
+        menuScreen: const MenuScreen(),
         mainScreen: Container(
           decoration: BoxDecoration(
             gradient: mainGradient(),
