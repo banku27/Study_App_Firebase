@@ -7,6 +7,8 @@ import 'package:study_app_firebase/controllers/question%20papers/questions_contr
 import 'package:study_app_firebase/widgets/background_decoration.dart';
 import 'package:study_app_firebase/widgets/content_area.dart';
 import 'package:study_app_firebase/widgets/custom_app_bar.dart';
+import 'package:study_app_firebase/widgets/questions/answer_card.dart';
+import 'package:study_app_firebase/widgets/questions/question_number_card.dart';
 
 class ResultScreen extends GetView<QuestionsController> {
   const ResultScreen({super.key});
@@ -60,6 +62,42 @@ class ResultScreen extends GetView<QuestionsController> {
                     ),
                     const SizedBox(
                       height: 25,
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                          shrinkWrap: true,
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: controller.allQuestions.length,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: Get.width ~/ 70,
+                            childAspectRatio: 1,
+                            crossAxisSpacing: 8,
+                            mainAxisSpacing: 8,
+                          ),
+                          itemBuilder: (context, index) {
+                            final _question = controller.allQuestions[index];
+                            AnswerStatus _status = AnswerStatus.notAnswered;
+                            final _selectedAnswer = _question.selectedAnswer;
+                            final _correctAnswer = _question.correctAnswer;
+                            if (_selectedAnswer == _correctAnswer) {
+                              _status = AnswerStatus.correct;
+                            } else if (_question.selectedAnswer == null) {
+                              _status = AnswerStatus.wrong;
+                            } else {
+                              _status = AnswerStatus.wrong;
+                            }
+                            return QuestionNumberCard(
+                              index: index + 1,
+                              onTap: () {
+                                controller.jumpToQuestion(
+                                  index,
+                                  isGoBack: false,
+                                );
+                              },
+                              status: _status,
+                            );
+                          }),
                     ),
                   ],
                 ),
