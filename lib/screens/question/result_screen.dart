@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
 import 'package:study_app_firebase/controllers/question%20papers/question_controller_extension.dart';
 import 'package:study_app_firebase/controllers/question%20papers/questions_controller.dart';
+import 'package:study_app_firebase/screens/question/answer_check_screen.dart';
 import 'package:study_app_firebase/widgets/background_decoration.dart';
 import 'package:study_app_firebase/widgets/content_area.dart';
 import 'package:study_app_firebase/widgets/custom_app_bar.dart';
@@ -93,6 +94,9 @@ class ResultScreen extends GetView<QuestionsController> {
                                 controller.jumpToQuestion(
                                   index,
                                   isGoBack: false,
+                                );
+                                Get.toNamed(
+                                  AnswerCheckScreen.routeName,
                                 );
                               },
                               status: _status,

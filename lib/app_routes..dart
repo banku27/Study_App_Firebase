@@ -6,6 +6,7 @@ import 'package:study_app_firebase/controllers/question%20papers/questions_contr
 import 'package:study_app_firebase/screens/home/home_screen.dart';
 import 'package:study_app_firebase/screens/introduction/introduction.dart';
 import 'package:study_app_firebase/screens/login/login_screen.dart';
+import 'package:study_app_firebase/screens/question/answer_check_screen.dart';
 import 'package:study_app_firebase/screens/question/questions_screen.dart';
 import 'package:study_app_firebase/screens/question/result_screen.dart';
 import 'package:study_app_firebase/screens/question/test_overview_screen.dart';
@@ -59,6 +60,10 @@ class AppRoutes {
         GetPage(
           name: ResultScreen.routeName,
           page: () => const ResultScreen(),
+        ),
+        GetPage(
+          name: AnswerCheckScreen.routeName,
+          page: () => const AnswerCheckScreen(),
         ),
       ];
 }
