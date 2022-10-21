@@ -41,12 +41,18 @@ class MenuScreen extends GetView<MyZoomDrawerController> {
                     Obx(
                       () => controller.user.value == null
                           ? const SizedBox()
-                          : Text(
-                              controller.user.value!.displayName ?? "",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 18,
-                                  color: onSurfaceTextColor),
+                          : Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20.0,
+                                top: 40,
+                              ),
+                              child: Text(
+                                controller.user.value!.displayName ?? "",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w900,
+                                    fontSize: 20,
+                                    color: onSurfaceTextColor),
+                              ),
                             ),
                     ),
                     const Spacer(
@@ -68,12 +74,15 @@ class MenuScreen extends GetView<MyZoomDrawerController> {
                       onTap: () => controller.email(),
                     ),
                     const Spacer(
-                      flex: 4,
+                      flex: 2,
                     ),
-                    _DrawerButton(
-                      icon: Icons.logout,
-                      label: "Logout",
-                      onTap: () => controller.signOut(),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20.0),
+                      child: _DrawerButton(
+                        icon: Icons.logout,
+                        label: "Logout",
+                        onTap: () => controller.signOut(),
+                      ),
                     ),
                   ],
                 ),
@@ -99,12 +108,15 @@ class _DrawerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
-        onPressed: onTap,
-        icon: Icon(
-          icon,
-          size: 15,
-        ),
-        label: Text(label));
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: TextButton.icon(
+          onPressed: onTap,
+          icon: Icon(
+            icon,
+            size: 20,
+          ),
+          label: Text(label)),
+    );
   }
 }
