@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:study_app_firebase/configs/themes/app_colors.dart';
 import 'package:study_app_firebase/configs/themes/custom_text_style.dart';
+import 'package:study_app_firebase/configs/themes/ui_parameters.dart';
 import 'package:study_app_firebase/controllers/question%20papers/question_controller_extension.dart';
 import 'package:study_app_firebase/controllers/question%20papers/questions_controller.dart';
 import 'package:study_app_firebase/screens/question/answer_check_screen.dart';
 import 'package:study_app_firebase/widgets/background_decoration.dart';
 import 'package:study_app_firebase/widgets/content_area.dart';
 import 'package:study_app_firebase/widgets/custom_app_bar.dart';
+import 'package:study_app_firebase/widgets/main_button.dart';
 import 'package:study_app_firebase/widgets/questions/answer_card.dart';
 import 'package:study_app_firebase/widgets/questions/question_number_card.dart';
 
@@ -20,15 +23,16 @@ class ResultScreen extends GetView<QuestionsController> {
     Color _textcolor =
         Get.isDarkMode ? Colors.white : Theme.of(context).primaryColor;
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        leading: const SizedBox(
+          height: 80,
+        ),
+        title: controller.correctAnsweredQuestions,
+      ),
       body: BackgroundDecoration(
         child: Column(
           children: [
-            CustomAppBar(
-              leading: const SizedBox(
-                height: 80,
-              ),
-              title: controller.correctAnsweredQuestions,
-            ),
             Expanded(
               child: ContentArea(
                 child: Column(
@@ -103,6 +107,30 @@ class ResultScreen extends GetView<QuestionsController> {
                             );
                           }),
                     ),
+                  ],
+                ),
+              ),
+            ),
+            ColoredBox(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              child: Padding(
+                padding: UIParameters.mobileScreenPadding,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: MainButton(
+                        onTap: () {},
+                        title: 'Try Again',
+                        color: onSurfaceTextColor,
+                      ),
+                    ),
+                    Expanded(
+                      child: MainButton(
+                        onTap: () {},
+                        title: 'Go Home',
+                        color: onSurfaceTextColor,
+                      ),
+                    )
                   ],
                 ),
               ),
