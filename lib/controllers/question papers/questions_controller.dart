@@ -2,11 +2,15 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:study_app_firebase/controllers/auth_controller.dart';
+import 'package:study_app_firebase/controllers/question%20papers/question_paper_controller.dart';
 import 'package:study_app_firebase/firebase_ref/loading_status.dart';
 import 'package:study_app_firebase/firebase_ref/references.dart';
 import 'package:study_app_firebase/models/question_paper_model.dart';
+import 'package:study_app_firebase/screens/home/home_screen.dart';
 import 'package:study_app_firebase/screens/question/result_screen.dart';
 
 class QuestionsController extends GetxController {
@@ -81,7 +85,7 @@ class QuestionsController extends GetxController {
 
   void selectedAnswer(String? answer) {
     currentQuestion.value!.selectedAnswer = answer;
-    update(['answers_list']);
+    update(['answers_list', 'answer_review_list']);
   }
 
   String get completedTest {
@@ -137,5 +141,17 @@ class QuestionsController extends GetxController {
         remainSeconds--;
       }
     });
+  }
+
+  void tryAgain() {
+    Get.find<QuestionPaperController>().navigateToQuestions(
+      paper: questionPaperModel,
+      tryAgain: true,
+    );
+  }
+
+  void navigateToHome() {
+    _timer!.cancel();
+    Get.offNamedUntil(HomeScreen.routeName, (route) => false);
   }
 }

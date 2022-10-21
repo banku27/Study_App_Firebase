@@ -119,14 +119,21 @@ class ResultScreen extends GetView<QuestionsController> {
                   children: [
                     Expanded(
                       child: MainButton(
-                        onTap: () {},
+                        onTap: () {
+                          controller.tryAgain();
+                        },
                         title: 'Try Again',
                         color: onSurfaceTextColor,
                       ),
                     ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     Expanded(
                       child: MainButton(
-                        onTap: () {},
+                        onTap: () {
+                          controller.saveTestResults();
+                        },
                         title: 'Go Home',
                         color: onSurfaceTextColor,
                       ),
